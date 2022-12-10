@@ -1,0 +1,4 @@
+{
+  "app": "ts-node ./infra/stack",
+  "versionReporting": false
+}
