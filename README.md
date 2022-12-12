@@ -1,5 +1,5 @@
 # cdk-amazon-connect
----
+
 A complete Amazon Connect contact center described entirely with the AWS CDK.
 
 This Contact Center consists of a small IVR and a single queue with a single agent user. The IVR has one contact flow, two Lambda Functions, and one Lex Bot.
@@ -65,4 +65,21 @@ cross-env ACCOUNT_ID=123456789012 REGION=us-east-1 npm run deploy
 ```
 
 
-This will create a CloudFormation stack with the name `cdk-amazon-connect-YOUR_ACCOUNT_ID`. Once the stack is finished creating, a CloudFormation output will be generated with the phone number provisioned for your application. You can immediately call the phone number to test your new contact center. If you would like to accept your call as an agent, you can navigate to the login page for your new Connect Instance and login as user `fredjones` with password `cHANGEmE123` to reach the Agent CCP.
+This will create a CloudFormation stack with the name `cdk-amazon-connect-YOUR_ACCOUNT_ID`. Once the stack is finished creating, a CloudFormation output will be generated with the phone number provisioned for your application. 
+
+```
+Outputs:
+cdk-amazon-connect-ACCOUNT_ID.phoneNumberOutput = +18888888888
+```
+
+You can immediately call the phone number to test your new contact center. If you would like to accept your call as an agent, you can navigate to the login page for your new Connect Instance and login as user `fredjones` with password `cHANGEmE123` to reach the Agent CCP.
+
+### Clean Up
+
+You can run the following command to delete the provisioned resources:
+
+```
+ACCOUNT_ID=123456789012 REGION=us-east-1 npm run destroy
+```
+
+Because some Amazon Connect instance resources do not support deletion (like Queues or Routing Profiles) deletion will fail. However, these resources *will* be deleted when the Amazon Connect instance is automatically deleted. Though these resources have a policy of "RETAIN", other items that are linked to these resources (such as Hours of Operation) may not be able to be deleted. CloudFormation will error when deleting these resources in the stack and you must manually agree to retain them in the CloudFormation console.
