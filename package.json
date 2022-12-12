@@ -1,6 +1,6 @@
 {
   "name": "cdk-amazon-connect",
-  "description": "A complete specification for an Amazon Connect contact center using the AWS CDK.",
+  "description": "A complete implementation of an Amazon Connect contact center using the AWS CDK. ",
   "version": "1.0.0",
   "scripts": {
     "deploy": "cdk deploy --no-rollback"
