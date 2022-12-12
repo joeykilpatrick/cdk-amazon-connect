@@ -2,12 +2,12 @@
 
 A complete Amazon Connect contact center described entirely with the AWS CDK.
 
-This Contact Center consists of a small IVR and a single queue with a single agent user. The IVR has one contact flow, two Lambda Functions, and one Lex Bot.
+This contact center consists of a small IVR and a single queue with a single agent user. The IVR has one contact flow, two Lambda Functions, and one Lex Bot.
 
 Official [CloudFormation support](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html) for Amazon Connect is limited and custom resources must be developed to use a pure Infrastructure as Code approach to development on the platform. Some experimental custom resource implementations are available in the package `cdk-amazon-connect-resources` and can be found on [npm](https://www.npmjs.com/package/cdk-amazon-connect-resources) and on [GitHub](https://github.com/joeykilpatrick/cdk-amazon-connect-resources).
 
 
-Here are the CloudFormation resources that are provisioned:
+Here is a list of provisioned resources, showing both the custom ones and the native CloudFormation ones:
 
 - Connect Instance
   - `AWS::CloudFormation::Instance`
